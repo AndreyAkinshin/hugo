@@ -22,6 +22,7 @@ import (
 	"runtime/debug"
 
 	"github.com/gohugoio/hugo/identity"
+	mathjax "github.com/litao91/goldmark-mathjax"
 
 	"github.com/pkg/errors"
 
@@ -99,6 +100,7 @@ func newMarkdown(pcfg converter.ProviderConfig) goldmark.Markdown {
 		extensions = []goldmark.Extender{
 			newLinks(),
 			newTocExtension(rendererOptions),
+			mathjax.MathJax,
 		}
 		parserOptions []parser.Option
 	)
